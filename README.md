@@ -33,6 +33,22 @@ Ombre Brain gives it persistent memory — not cold key-value storage, but a sys
 - **API 降级 / API degradation**: 脱水压缩和自动打标优先用廉价 LLM API（DeepSeek 等），API 不可用时自动降级到本地关键词分析——始终可用。
   Dehydration and auto-tagging prefer a cheap LLM API (DeepSeek etc.). When the API is unavailable, it degrades to local keyword analysis — always functional.
 
+## 边界说明 / Design boundaries
+
+官方记忆功能已经在做身份层的事了——你是谁，你有什么偏好，你们的关系是什么。那一层交给它，Ombre Brain不打算造重复的轮子。
+
+Ombre Brain 的边界是时间里发生的事，不是你是谁。它记住的是：你们聊过什么，经历了什么，哪些事情还悬在那里没有解决。两层配合用，才是完整的。
+
+每次新对话，Claude 从零开始——但它能从 Ombre Brain 里找回跟你有关的一切。不是重建，是接续。
+
+---
+
+Official memory already handles the identity layer — who you are, what you prefer, what your relationship is. That layer belongs there. Ombre Brain isn't trying to duplicate it.
+
+Ombre Brain's boundary is *what happened in time*, not *who you are*. It holds conversations, experiences, unresolved things. The two layers together are what make it feel complete.
+
+Each new conversation starts fresh — but Claude can reach back through Ombre Brain and find everything that happened between you. Not a rebuild. A continuation.
+
 ## 架构 / Architecture
 
 ```
